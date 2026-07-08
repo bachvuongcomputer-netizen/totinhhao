@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Hảo ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff5fa2,#ff8fc1,#ffc7df,#ffe6f2);
+background-size:400% 400%;
+animation:bg 12s infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.card{
+width:90%;
+max-width:700px;
+padding:45px;
+text-align:center;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+border-radius:25px;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+animation:show 1.2s;
+position:relative;
+z-index:2;
+}
+
+@keyframes show{
+from{opacity:0;transform:translateY(50px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+font-size:52px;
+color:#fff;
+}
+
+.name{
+font-size:64px;
+color:#ff004c;
+font-weight:bold;
+margin:15px 0;
+text-shadow:0 0 20px white;
+}
+
+p{
+color:#fff;
+font-size:22px;
+line-height:1.8;
+margin:10px 0;
+}
+
+.buttons{
+margin-top:35px;
+}
+
+button{
+padding:14px 30px;
+font-size:20px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:10px;
+transition:.3s;
+}
+
+#yes{
+background:#ff2f75;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.1);
+}
+
+#no{
+background:white;
+color:#ff2f75;
+position:relative;
+}
+
+#result{
+margin-top:30px;
+font-size:30px;
+color:white;
+font-weight:bold;
+display:none;
+}
+
+.heart{
+position:fixed;
+font-size:30px;
+animation:fly linear forwards;
+pointer-events:none;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(0) scale(.5);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh) scale(2);
+opacity:0;
+}
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>💖 Gửi đến 💖</h1>
+
+<div class="name">Hảo</div>
+
+<p>Anh không phải người hoàn hảo...</p>
+
+<p>Nhưng anh sẽ cố gắng trở thành người luôn ở bên cạnh em.</p>
+
+<p>Cảm ơn em đã xuất hiện để mỗi ngày của anh đều trở nên ý nghĩa hơn.</p>
+
+<p style="font-size:28px;font-weight:bold">
+❤️ Hảo, em làm người yêu anh nhé? ❤️
+</p>
+
+<div class="buttons">
+<button id="yes" onclick="yesLove()">Đồng ý ❤️</button>
+<button id="no" onmouseover="run()">Không 😝</button>
+</div>
+
+<div id="result">
+🥰 Anh hứa sẽ luôn yêu thương và trân trọng em! 🥰
+</div>
+
+</div>
+
+<script>
+
+function yesLove(){
+
+document.getElementById("result").style.display="block";
+
+for(let i=0;i<120;i++){
+setTimeout(createHeart,i*60);
+}
+
+}
+
+function run(){
+
+const btn=document.getElementById("no");
+
+btn.style.position="fixed";
+
+btn.style.left=Math.random()*(window.innerWidth-120)+"px";
+
+btn.style.top=Math.random()*(window.innerHeight-60)+"px";
+
+}
+
+function createHeart(){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=["❤️","💕","💖","💘","💗"][Math.floor(Math.random()*5)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.top="100vh";
+
+h.style.fontSize=(20+Math.random()*35)+"px";
+
+h.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),7000);
+
+}
+
+setInterval(createHeart,600);
+
+</script>
+
+</body>
+</html>
